@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
         enum: ['admin', 'alumni'],
         default: 'alumni'
     },
-    alumniProfile: { type:mongoose.Schema.Types.ObjectId, ref: 'AlumniProfile' },
+    alumniProfile: { type: String, ref: 'AlumniProfile' },
     createdAt: {
         type: Date,
         default: Date.now

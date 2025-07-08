@@ -2,9 +2,13 @@ const mongoose = require('mongoose');
 
 const alumniProfileSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: true },
+  first_name: { type: String },
+  last_name: { type: String },
+  email: { type: String },
   batch: { type: String, required: true },         
   branch: { type: String, required: true },        
-  department: { type: String },                   
+  passingYear : { type: String },  
+  city: { type: String },                 
   country: { type: String },
   location: {
     type: {
@@ -14,11 +18,16 @@ const alumniProfileSchema = new mongoose.Schema({
     },
     coordinates: [Number], // [longitude, latitude]
   },
-  profilePhoto: { type: String },
+  photo: { type: String },
   occupation: { type: String },
   company: { type: String },
   bio: { type: String },
   linkedIn: { type: String },
+  alumniId: {
+    type: String,
+    unique: true,
+    required: true
+  }
 }, { timestamps: true });
 
 alumniProfileSchema.index({ location: '2dsphere' });
